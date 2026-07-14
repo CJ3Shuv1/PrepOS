@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0a0a0c;
+  --text: #f5f5f7;
+  --text-dim: #a3a3ab;
+  --text-faint: #6c6c74;
+  --hairline: rgba(255, 255, 255, 0.1);
+  --accent: #ff3b3b;
+  --accent-dim: #5c1616;
+  --good: #34d399;
+  --warn: #fbbf24;
+
+  /* glass (default): translucent frosted panels over a glowing gradient backdrop */
+  --panel-bg: rgba(255, 255, 255, 0.055);
+  --panel-bg-raised: rgba(255, 255, 255, 0.09);
+  --panel-blur: blur(24px) saturate(150%);
+  --panel-border: rgba(255, 255, 255, 0.14);
+
+  --background: var(--bg);
+  --foreground: var(--text);
+}
+
+[data-style="solid"] {
+  --panel-bg: #17171b;
+  --panel-bg-raised: #202027;
+  --panel-blur: none;
+  --panel-border: rgba(255, 255, 255, 0.09);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  position: relative;
+}
+
+/* Ambient glow backdrop — only visible in glass mode; solid mode keeps a flat bg. */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background:
+    radial-gradient(ellipse 600px 500px at 15% -5%, rgba(255, 59, 59, 0.22), transparent 60%),
+    radial-gradient(ellipse 500px 400px at 100% 20%, rgba(80, 90, 255, 0.14), transparent 55%),
+    radial-gradient(ellipse 500px 500px at 50% 110%, rgba(255, 59, 59, 0.1), transparent 60%);
+}
+
+[data-style="glass"] .ambient-glow {
+  opacity: 1;
+}
+
+.panel {
+  background: var(--panel-bg);
+  backdrop-filter: var(--panel-blur);
+  -webkit-backdrop-filter: var(--panel-blur);
+  border: 1px solid var(--panel-border);
+}
+
+.panel-raised {
+  background: var(--panel-bg-raised);
+  backdrop-filter: var(--panel-blur);
+  -webkit-backdrop-filter: var(--panel-blur);
+  border: 1px solid var(--panel-border);
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
 }
