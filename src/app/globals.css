@@ -11,7 +11,7 @@
   --good: #12b981;
   --warn: #d97706;
 
-  /* glass (default): translucent frosted white panels over a soft gradient backdrop */
+  /* liquid glass: translucent frosted white panels over a soft gradient backdrop */
   --panel-bg: rgba(255, 255, 255, 0.55);
   --panel-bg-raised: rgba(255, 255, 255, 0.75);
   --panel-border: rgba(255, 255, 255, 0.6);
@@ -19,13 +19,6 @@
 
   --background: var(--bg);
   --foreground: var(--text);
-}
-
-[data-style="solid"] {
-  --panel-bg: #ffffff;
-  --panel-bg-raised: #f7f7fa;
-  --panel-border: rgba(20, 20, 30, 0.08);
-  --panel-shadow: 0 1px 3px rgba(30, 30, 60, 0.06);
 }
 
 @theme inline {
@@ -45,14 +38,11 @@ body {
   position: relative;
 }
 
-/* Ambient glow backdrop — only visible in glass mode; solid mode keeps a flat bg. */
 .ambient-glow {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
   background:
     radial-gradient(ellipse 700px 550px at 10% -10%, rgba(255, 59, 59, 0.16), transparent 60%),
     radial-gradient(ellipse 600px 450px at 105% 15%, rgba(80, 130, 255, 0.14), transparent 55%),
@@ -60,14 +50,11 @@ body {
     linear-gradient(180deg, #f4f5fa 0%, #eef0f5 100%);
 }
 
-[data-style="glass"] .ambient-glow {
-  opacity: 1;
-}
-
 .panel,
 .panel-raised {
   border: 1px solid var(--panel-border);
   box-shadow: var(--panel-shadow);
+  @apply backdrop-blur-xl backdrop-saturate-150;
 }
 
 .panel {
@@ -76,11 +63,6 @@ body {
 
 .panel-raised {
   background: var(--panel-bg-raised);
-}
-
-[data-style="glass"] .panel,
-[data-style="glass"] .panel-raised {
-  @apply backdrop-blur-xl backdrop-saturate-150;
 }
 
 input,

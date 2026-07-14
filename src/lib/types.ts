@@ -1,5 +1,3 @@
-export type UiStyle = "glass" | "solid";
-
 export type Profile = {
   user_id: string;
   name: string | null;
