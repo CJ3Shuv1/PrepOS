@@ -11,7 +11,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center px-4">
       <form
         action={formAction}
-        className="panel w-full max-w-sm rounded-3xl p-7 shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
+        className="panel w-full max-w-sm rounded-3xl p-7"
       >
         <div className="mb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--text-faint)]">
           PrepOS
@@ -45,7 +45,7 @@ export default function LoginPage() {
         </label>
 
         {state?.error && (
-          <p className="mb-4 text-sm text-[#ff6b6b]">{state.error}</p>
+          <p className="mb-4 text-sm text-[#d92626]">{state.error}</p>
         )}
 
         <button
