@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Checkin, WeightEntry } from "@/lib/types";
 import { saveCheckin } from "./actions";
+import PremiumTeaser from "../PremiumTeaser";
 
 function todayLocal() {
   const d = new Date();
@@ -170,6 +171,21 @@ export default function CheckinForm({
         {recentCheckins.length === 0 && (
           <p className="text-sm text-[var(--text-faint)]">Noch keine Check-ins.</p>
         )}
+      </div>
+
+      <div className="mt-4">
+        <PremiumTeaser
+          title="Automatische Erinnerungen"
+          description="Push-Nachricht, wenn dein Check-in fällig ist — verpasse keine Woche mehr."
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm font-semibold">Check-in-Erinnerung</div>
+              <div className="text-xs text-[var(--text-faint)]">Jeden Sonntag, 18:00 Uhr</div>
+            </div>
+            <div className="h-6 w-11 rounded-full bg-[var(--accent)]" />
+          </div>
+        </PremiumTeaser>
       </div>
     </div>
   );

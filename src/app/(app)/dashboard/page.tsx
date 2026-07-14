@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import LineChart from "../LineChart";
+import PremiumTeaser from "../PremiumTeaser";
 import { IconPlate, IconDumbbell, IconCheckCircle } from "@/lib/icons";
 import type { MacroTarget, WeightEntry } from "@/lib/types";
 
@@ -92,6 +93,21 @@ export default async function DashboardPage() {
           <div className="text-sm font-semibold">Check-in eintragen</div>
           <div className="text-xs text-[var(--text-faint)]">Gewicht, Schlaf, Energie & mehr</div>
         </Link>
+      </div>
+
+      <div className="mt-4">
+        <PremiumTeaser
+          title="KI Coach-Insights"
+          description="Automatische Trend-Analyse deiner Check-ins mit konkreten Anpassungsvorschlägen."
+        >
+          <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--text-faint)]">
+            Diese Woche
+          </div>
+          <div className="mb-1 text-lg font-bold">Kalorienzufuhr leicht erhöhen</div>
+          <p className="text-xs text-[var(--text-dim)]">
+            Dein Gewichtsverlust hat sich beschleunigt — +150 kcal an Trainingstagen empfohlen, um die Rate zu stabilisieren.
+          </p>
+        </PremiumTeaser>
       </div>
     </div>
   );
