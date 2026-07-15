@@ -8,7 +8,16 @@ import {
   IconDumbbell,
   IconCheckCircle,
   IconChart,
+  IconPhone,
+  IconMail,
 } from "@/lib/icons";
+
+const CONTACT = {
+  name: "Cedric Rodej",
+  phone: "0177 7434814",
+  phoneHref: "tel:+491777434814",
+  email: "cedric.magnar.rodej@gmail.com",
+};
 
 const HERO_FEATURES = [
   {
@@ -131,12 +140,40 @@ export default function ZukunftigPage() {
 
       <div className="panel mt-6 rounded-3xl p-6 text-center">
         <div className="mb-1.5 text-lg font-bold">Bereit, das für dein Coaching freizuschalten?</div>
-        <p className="mb-4 text-[13px] text-[var(--text-dim)]">
+        <p className="mb-5 text-[13px] text-[var(--text-dim)]">
           Lass uns kurz sprechen, was du wirklich brauchst — dann bauen wir gemeinsam den Umfang und finden einen
           fairen Preis.
         </p>
-        <div className="mx-auto w-full max-w-xs rounded-2xl bg-[var(--accent)] py-3.5 text-sm font-bold text-white shadow-[0_4px_20px_rgba(255,59,59,0.35)]">
-          Gespräch anfragen
+
+        <div className="space-y-2.5">
+          <a
+            href={CONTACT.phoneHref}
+            className="flex items-center gap-3 rounded-2xl bg-[var(--accent)] px-4 py-3.5 text-left shadow-[0_4px_20px_rgba(255,59,59,0.35)]"
+          >
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
+              <IconPhone className="h-4 w-4" />
+            </div>
+            <div>
+              <div className="text-sm font-bold text-white">{CONTACT.phone}</div>
+              <div className="text-[11px] text-white/80">Jetzt anrufen</div>
+            </div>
+          </a>
+          <a
+            href={`mailto:${CONTACT.email}?subject=${encodeURIComponent("PrepOS – Interesse an der Vollversion")}`}
+            className="panel-raised flex items-center gap-3 rounded-2xl px-4 py-3.5 text-left"
+          >
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--accent-dim)] text-[var(--accent)]">
+              <IconMail className="h-4 w-4" />
+            </div>
+            <div className="min-w-0">
+              <div className="truncate text-sm font-bold">{CONTACT.email}</div>
+              <div className="text-[11px] text-[var(--text-faint)]">E-Mail schreiben</div>
+            </div>
+          </a>
+        </div>
+
+        <div className="mt-4 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--text-faint)]">
+          {CONTACT.name}
         </div>
       </div>
     </div>

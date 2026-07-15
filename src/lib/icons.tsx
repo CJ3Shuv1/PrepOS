@@ -87,6 +87,23 @@ export function IconRemote({ className }: IconProps) {
   );
 }
 
+export function IconPhone({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4 1.5v3c0 1.1-.9 2-2 2C11.5 19 5 12.5 4.5 6c0-1.1.9-2 2-2z" />
+    </svg>
+  );
+}
+
+export function IconMail({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
+      <path d="M4.5 7l7.5 6 7.5-6" />
+    </svg>
+  );
+}
+
 export function IconPalette({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} {...base}>
