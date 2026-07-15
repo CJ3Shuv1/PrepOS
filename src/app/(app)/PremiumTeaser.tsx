@@ -15,7 +15,7 @@ export default function PremiumTeaser({
   children: React.ReactNode;
 }) {
   return (
-    <div className="panel relative overflow-hidden rounded-3xl p-5">
+    <div className="panel relative min-h-[210px] overflow-hidden rounded-3xl p-5">
       <div className="pointer-events-none select-none blur-[5px]" aria-hidden="true">
         {children}
       </div>
