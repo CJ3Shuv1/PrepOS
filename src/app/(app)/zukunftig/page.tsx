@@ -107,7 +107,7 @@ export default function ZukunftigPage() {
         </p>
       </div>
 
-      <div className="mb-6 space-y-3">
+      <div className="mb-6 grid grid-cols-1 gap-3 xl:grid-cols-3">
         {HERO_FEATURES.map(({ Icon, title, description }) => (
           <div key={title} className="panel relative overflow-hidden rounded-3xl p-5">
             <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-[var(--accent)] opacity-[0.07]" />
@@ -123,7 +123,7 @@ export default function ZukunftigPage() {
       <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-faint)]">
         Und außerdem umsetzbar
       </div>
-      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 xl:grid-cols-3">
         {ROADMAP_ITEMS.map(({ Icon, title, description }) => (
           <div key={title} className="panel rounded-2xl p-4">
             <div className="mb-2 flex items-center justify-between">

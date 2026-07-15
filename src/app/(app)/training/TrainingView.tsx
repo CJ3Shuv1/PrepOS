@@ -100,7 +100,7 @@ export default function TrainingView({
         </button>
       )}
 
-      <div className="space-y-2.5">
+      <div className="space-y-2.5 lg:grid lg:grid-cols-2 lg:gap-2.5 lg:space-y-0">
         {dayExercises.map((ex) =>
           editing ? (
             <EditableExerciseCard

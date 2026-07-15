@@ -48,36 +48,38 @@ export default async function DashboardPage() {
         {profile?.phase ? `Aktuelle Phase: ${profile.phase}` : "Dein Fortschritt auf einen Blick."}
       </p>
 
-      <div className="panel mb-4 rounded-3xl p-5">
-        <div className="mb-3 flex items-end justify-between">
-          <div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--text-faint)]">
-              Aktuelles Gewicht
+      <div className="mb-4 lg:grid lg:grid-cols-3 lg:items-start lg:gap-4">
+        <div className="panel mb-4 rounded-3xl p-5 lg:col-span-2 lg:mb-0">
+          <div className="mb-3 flex items-end justify-between">
+            <div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--text-faint)]">
+                Aktuelles Gewicht
+              </div>
+              <div className="text-3xl font-extrabold">
+                {latest ? `${latest.weight} kg` : "—"}
+              </div>
             </div>
-            <div className="text-3xl font-extrabold">
-              {latest ? `${latest.weight} kg` : "—"}
-            </div>
+            {delta !== null && (
+              <div
+                className={`rounded-full px-2.5 py-1 font-mono text-xs font-bold ${
+                  delta <= 0 ? "bg-[rgba(52,211,153,0.15)] text-[var(--good)]" : "bg-[rgba(255,59,59,0.15)] text-[var(--accent)]"
+                }`}
+              >
+                {delta > 0 ? "+" : ""}
+                {delta} kg
+              </div>
+            )}
           </div>
-          {delta !== null && (
-            <div
-              className={`rounded-full px-2.5 py-1 font-mono text-xs font-bold ${
-                delta <= 0 ? "bg-[rgba(52,211,153,0.15)] text-[var(--good)]" : "bg-[rgba(255,59,59,0.15)] text-[var(--accent)]"
-              }`}
-            >
-              {delta > 0 ? "+" : ""}
-              {delta} kg
-            </div>
-          )}
+          <LineChart points={chartPoints} />
         </div>
-        <LineChart points={chartPoints} />
+
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+          <MacroCard label="Trainingstag" target={training} />
+          <MacroCard label="Ruhetag" target={rest} />
+        </div>
       </div>
 
-      <div className="mb-4 grid grid-cols-2 gap-3">
-        <MacroCard label="Trainingstag" target={training} />
-        <MacroCard label="Ruhetag" target={rest} />
-      </div>
-
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
         <Link href="/nutrition" className="panel rounded-2xl p-4">
           <IconPlate className="mb-2 h-5 w-5 text-[var(--text-dim)]" />
           <div className="text-sm font-semibold">Ernährungsplan</div>
@@ -88,7 +90,7 @@ export default async function DashboardPage() {
           <div className="text-sm font-semibold">Trainingsplan</div>
           <div className="text-xs text-[var(--text-faint)]">Übungen & Sätze</div>
         </Link>
-        <Link href="/checkin" className="panel col-span-2 rounded-2xl p-4">
+        <Link href="/checkin" className="panel col-span-2 rounded-2xl p-4 lg:col-span-1">
           <IconCheckCircle className="mb-2 h-5 w-5 text-[var(--text-dim)]" />
           <div className="text-sm font-semibold">Check-in eintragen</div>
           <div className="text-xs text-[var(--text-faint)]">Gewicht, Schlaf, Energie & mehr</div>

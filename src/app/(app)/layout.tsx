@@ -27,9 +27,9 @@ export default async function AppLayout({
   }
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-[640px] flex-col">
+    <div className="mx-auto flex min-h-screen w-full max-w-[640px] flex-col md:max-w-[760px] xl:max-w-[1040px]">
       <div className="mx-3 mt-4 sm:mx-4">
-        <div className="panel flex gap-1 rounded-2xl p-1">
+        <div className="panel flex gap-1 rounded-2xl p-1 md:mx-auto md:max-w-[520px]">
           {NAV.map(({ href, Icon, label }) => (
             <Link
               key={href}
