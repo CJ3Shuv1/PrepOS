@@ -2,13 +2,14 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/auth/actions";
-import { IconChart, IconPlate, IconDumbbell, IconCheckCircle } from "@/lib/icons";
+import { IconChart, IconPlate, IconDumbbell, IconCheckCircle, IconCompass } from "@/lib/icons";
 
 const NAV = [
   { href: "/dashboard", Icon: IconChart, label: "Dashboard" },
   { href: "/nutrition", Icon: IconPlate, label: "Ernährung" },
   { href: "/training", Icon: IconDumbbell, label: "Training" },
   { href: "/checkin", Icon: IconCheckCircle, label: "Check-in" },
+  { href: "/zukunftig", Icon: IconCompass, label: "Zukünftig" },
 ];
 
 export default async function AppLayout({

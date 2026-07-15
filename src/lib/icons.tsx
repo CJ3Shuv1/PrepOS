@@ -67,3 +67,33 @@ export function IconSparkle({ className }: IconProps) {
     </svg>
   );
 }
+
+export function IconCompass({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M14.8 9.2l-1.6 4.4-4.4 1.6 1.6-4.4z" />
+    </svg>
+  );
+}
+
+export function IconRemote({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <rect x="4" y="3" width="10" height="18" rx="2" />
+      <path d="M17 8c1.9 1.1 3 2.9 3 4.8s-1.1 3.7-3 4.8" />
+      <path d="M19.5 5.5c2.6 1.6 4.2 4.1 4.2 7s-1.6 5.4-4.2 7" />
+    </svg>
+  );
+}
+
+export function IconFileSpreadsheet({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M6 3h9l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+      <path d="M8.5 13h7" />
+      <path d="M8.5 16.5h7" />
+      <path d="M12 13v6.5" />
+    </svg>
+  );
+}
