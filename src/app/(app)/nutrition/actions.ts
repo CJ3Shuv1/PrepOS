@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import type { MealItem } from "@/lib/types";
+import { MAX_DEMO_MEALS } from "@/lib/constants";
 
 async function requireUser() {
   const supabase = await createClient();
@@ -22,6 +23,7 @@ export async function addMeal() {
     .order("meal_number", { ascending: false })
     .limit(1);
   const nextMeal = (existing?.[0]?.meal_number ?? 0) + 1;
+  if (nextMeal > MAX_DEMO_MEALS) return nextMeal;
 
   await supabase.from("meal_items").insert({
     user_id: user.id,

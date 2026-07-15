@@ -87,6 +87,26 @@ export function IconRemote({ className }: IconProps) {
   );
 }
 
+export function IconPalette({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M12 3.5a8.5 7.5 0 1 0 0 15c1.1 0 1.8-.7 1.8-1.6 0-.4-.2-.8-.4-1.1-.3-.4-.1-1 .4-1.1H15c2.5 0 4.5-1.9 4.5-4.7 0-3.6-3.4-6.5-7.5-6.5z" />
+      <circle cx="8.2" cy="10.5" r="1" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="8" r="1" fill="currentColor" stroke="none" />
+      <circle cx="15.8" cy="10.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function IconShieldCheck({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M12 3.5l7 2.5v5.3c0 4.4-2.9 7.7-7 9.2-4.1-1.5-7-4.8-7-9.2V6l7-2.5z" />
+      <path d="M9 12l2 2 4-4.2" />
+    </svg>
+  );
+}
+
 export function IconFileSpreadsheet({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} {...base}>

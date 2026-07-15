@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { MealItem } from "@/lib/types";
 import { addMeal, addMealItem, deleteMeal, deleteMealItem, updateMealItem } from "./actions";
+import { MAX_DEMO_MEALS } from "@/lib/constants";
 import PremiumTeaser from "../PremiumTeaser";
 
 function sumMacros(items: MealItem[]) {
@@ -92,7 +93,7 @@ export default function NutritionView({ items }: { items: MealItem[] }) {
         })}
       </div>
 
-      {editing && (
+      {editing && mealNumbers.length < MAX_DEMO_MEALS && (
         <button
           onClick={async () => {
             await addMeal();
@@ -104,7 +105,26 @@ export default function NutritionView({ items }: { items: MealItem[] }) {
         </button>
       )}
 
-      <div className="mt-4">
+      <div className="mt-4 space-y-4">
+        {mealNumbers.length >= MAX_DEMO_MEALS && (
+          <PremiumTeaser
+            title="Weitere Mahlzeiten"
+            description="In der Demo auf 3 Mahlzeiten begrenzt — die Vollversion hat keine Grenze."
+          >
+            <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--accent)]">
+              Meal {MAX_DEMO_MEALS + 1}
+            </div>
+            <div className="flex items-center justify-between border-b border-[var(--panel-border)] py-1.5 text-[13px]">
+              <span>Proteinriegel</span>
+              <span className="font-mono text-[var(--text-faint)]">1 Stück</span>
+            </div>
+            <div className="flex items-center justify-between py-1.5 text-[13px]">
+              <span>Banane</span>
+              <span className="font-mono text-[var(--text-faint)]">1 Stück</span>
+            </div>
+          </PremiumTeaser>
+        )}
+
         <PremiumTeaser
           title="KI-Ernährungsanalyse"
           description="Beschreib, was du gegessen hast — die KI schätzt Kalorien & Makros automatisch."

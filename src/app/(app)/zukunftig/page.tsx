@@ -1,7 +1,9 @@
 import {
   IconRemote,
   IconFileSpreadsheet,
+  IconPalette,
   IconSparkle,
+  IconShieldCheck,
   IconPlate,
   IconDumbbell,
   IconCheckCircle,
@@ -20,6 +22,12 @@ const HERO_FEATURES = [
     title: "App oder Excel — du entscheidest",
     description:
       "Pläne direkt in der App bearbeiten, oder gewohnt per Excel importieren und exportieren. Dein bisheriger Workflow bleibt erhalten — die App ergänzt ihn, statt ihn dir aufzuzwingen.",
+  },
+  {
+    Icon: IconPalette,
+    title: "Deine Farben, dein Logo, deine App",
+    description:
+      "Farbschema, Logo und Branding werden auf dich zugeschnitten. Deine Trainees sehen deine Marke — nicht irgendeine Fremd-App.",
   },
 ];
 
@@ -73,15 +81,28 @@ export default function ZukunftigPage() {
         <IconSparkle className="h-3 w-3" />
         Roadmap
       </div>
-      <h1 className="mb-1 text-3xl font-extrabold tracking-tight">Zukünftig</h1>
-      <p className="mb-6 text-sm text-[var(--text-dim)]">
-        Das hier ist erst der Anfang. Mit der Vollversion kommt das dazu:
+      <h1 className="mb-1 bg-gradient-to-br from-[var(--text)] to-[var(--text-dim)] bg-clip-text text-3xl font-extrabold tracking-tight text-transparent">
+        Zukünftig
+      </h1>
+      <p className="mb-4 text-sm text-[var(--text-dim)]">
+        Das hier ist erst der Prototyp. Alles, was du hier siehst, ist technisch bereits umsetzbar.
       </p>
 
-      <div className="mb-5 space-y-3">
+      <div className="panel mb-6 flex items-center gap-3 rounded-2xl p-4">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-white">
+          <IconShieldCheck className="h-4 w-4" />
+        </div>
+        <p className="text-[13px] leading-snug text-[var(--text)]">
+          <span className="font-semibold">Kein Wunschdenken.</span> Jedes Feature unten ist machbar — Umfang und
+          Preis stimmen wir gemeinsam ab, sobald du dich entscheidest.
+        </p>
+      </div>
+
+      <div className="mb-6 space-y-3">
         {HERO_FEATURES.map(({ Icon, title, description }) => (
-          <div key={title} className="panel rounded-3xl p-5">
-            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--accent)] text-white">
+          <div key={title} className="panel relative overflow-hidden rounded-3xl p-5">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-[var(--accent)] opacity-[0.07]" />
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#c41f1f] text-white shadow-[0_4px_14px_rgba(255,59,59,0.35)]">
               <Icon className="h-5 w-5" />
             </div>
             <div className="mb-1.5 text-lg font-bold">{title}</div>
@@ -91,23 +112,32 @@ export default function ZukunftigPage() {
       </div>
 
       <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-faint)]">
-        Und außerdem geplant
+        Und außerdem umsetzbar
       </div>
       <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
         {ROADMAP_ITEMS.map(({ Icon, title, description }) => (
           <div key={title} className="panel rounded-2xl p-4">
-            <Icon className="mb-2 h-4 w-4 text-[var(--accent)]" />
+            <div className="mb-2 flex items-center justify-between">
+              <Icon className="h-4 w-4 text-[var(--accent)]" />
+              <span className="rounded-full bg-[rgba(18,185,129,0.12)] px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-[0.05em] text-[var(--good)]">
+                Umsetzbar
+              </span>
+            </div>
             <div className="mb-1 text-[13.5px] font-semibold">{title}</div>
             <p className="text-xs leading-relaxed text-[var(--text-faint)]">{description}</p>
           </div>
         ))}
       </div>
 
-      <div className="panel mt-5 rounded-3xl p-5 text-center">
-        <div className="mb-1.5 text-base font-bold">Interesse an der Vollversion?</div>
-        <p className="text-[13px] text-[var(--text-dim)]">
-          Sprich mit deinem Coach — gemeinsam schauen wir, was für euch Sinn ergibt.
+      <div className="panel mt-6 rounded-3xl p-6 text-center">
+        <div className="mb-1.5 text-lg font-bold">Bereit, das für dein Coaching freizuschalten?</div>
+        <p className="mb-4 text-[13px] text-[var(--text-dim)]">
+          Lass uns kurz sprechen, was du wirklich brauchst — dann bauen wir gemeinsam den Umfang und finden einen
+          fairen Preis.
         </p>
+        <div className="mx-auto w-full max-w-xs rounded-2xl bg-[var(--accent)] py-3.5 text-sm font-bold text-white shadow-[0_4px_20px_rgba(255,59,59,0.35)]">
+          Gespräch anfragen
+        </div>
       </div>
     </div>
   );
